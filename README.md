@@ -80,3 +80,11 @@ graph TD
 - Maximum website content: 5000 characters/ can be changed according to the usage 
 - Requires stable internet connection
 - Dependent on website's accessibility and structures as some sites are secure and simple html parser can't be able to parse all the data.
+
+
+## Resources used 
+- [Gemini API Documentation](https://cloud.google.com/ai-platform/generativeai/docs/reference)
+- [BeautifulSoup Documentation](https://www.crummy.com/software/BeautifulSoup/bs4/doc)
+- [Understanding RAG: Building a RAG system from scratch with Gemini API](https://medium.com/@saurabhgssingh/understanding-rag-building-a-rag-system-from-scratch-with-gemini-api-b11ad9fc1bf7)
+- [Explore document processing capabilities with the Gemini API ](https://ai.google.dev/gemini-api/docs/document-processing?lang=python)
+- [Gemini API Python Client Library](https://github.com/google-research/google-research/tree)
