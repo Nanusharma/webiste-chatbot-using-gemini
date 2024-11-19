@@ -3,6 +3,10 @@
 ## Objective
 Develop an interactive chatbot that can extract content from a given website URL and enable users to ask questions about the website's content using Google's Gemini AI model through a console-based interface.
 
+This Python code creates a helpful chatbot that can answer your questions about any website you choose.
+It takes a website URL, cleans up the content to focus on the main text, and then uses the Google Gemini Pro model to provide informative answers to your questions in an interactive chat.
+
+
 ## Key Functions
 
 ### 1. `validate_url(url)`

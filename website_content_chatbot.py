@@ -1,9 +1,12 @@
-import os
+#If you don't have the Gemini-Api key you can create one for free from
+#https://aistudio.google.com/app/apikey?_gl=1*1eu10o5*_ga*MzA0NjY3MDcwLjE3MzEzMjEzMDU.*_ga_P1DBVKWT6V*MTczMjAwNjE0MC41LjEuMTczMjAwNzc1OS42MC4wLjc2Mjg5OTU0OQ..
+
+
 import requests
 from bs4 import BeautifulSoup
 import google.generativeai as genai
 from urllib.parse import urlparse
-import key
+import key  #To import the api key from the 
 
 def validate_url(url):
     try:
@@ -58,7 +61,7 @@ def configure_gemini_model(api_key):
         "top_p": 0.85,
         "top_k": 40,
         "max_output_tokens": 2000,
-    }
+    }  # can change these parameters
     
     # Initialize Gemini model
     return genai.GenerativeModel(
@@ -126,8 +129,9 @@ def main():
         
         # Prompt if not found
         if not api_key:
-            api_key = input("Enter your Gemini API Key: ").strip()
-        
+            api_key = input("Enter your Gemini API Key:").strip()
+
+    
         return api_key
 
     # Get API Key
