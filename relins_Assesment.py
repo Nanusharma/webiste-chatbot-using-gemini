@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import google.generativeai as genai
 from urllib.parse import urlparse
+import key
 
 def validate_url(url):
     try:
@@ -121,7 +122,7 @@ def main():
     # API Key retrieval
     def get_api_key():
         # Check environment variable
-        api_key = "AIzaSyBziqQ9Zu4r4MYuG2DdYLomMxVBPwFmzIs"
+        api_key = key.key()
         
         # Prompt if not found
         if not api_key:

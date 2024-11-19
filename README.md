@@ -1,19 +1,82 @@
-Dear Candidate,
+# Website Content Chatbot
 
-We are seeking an engineer skilled in either Python or Node.js to work with the ChatGPT API/NLP in order to develop innovative solutions. The successful candidate will be tasked with the following assignment:
+## Objective
+Develop an interactive chatbot that can extract content from a given website URL and enable users to ask questions about the website's content using Google's Gemini AI model through a console-based interface.
 
-Objective: Create a chatbot using the ChatGPT API that interacts with a given website URL. Although no frontend is required, the chatbot must be demonstrable via console.
+## Key Functions
 
-In this project, the engineer will be responsible for:
+### 1. `validate_url(url)`
+- Validates the format of the input URL
+- Checks for valid scheme and network location
+- Returns boolean indicating URL validity
 
-1. Setting up the environment: Acquire necessary API keys for ChatGPT and install required libraries/packages for Python or Node.js. Configure the development environment to make API calls efficiently.
+### 2. `extract_website_content(url, max_chars=5000)`
+- Fetches website content using requests library
+- Uses BeautifulSoup to parse and clean HTML
+- Removes script, style, and navigation elements
+- Truncates content to specified maximum character length
+- Handles potential request exceptions
 
-2. Extracting data: Create a script to fetch the website's content via the provided URL. Extract relevant information from the website by using web scraping techniques, such as Beautiful Soup for Python or Cheerio for Node.js.
+### 3. `generate_initial_context(model, content)`
+- Creates a concise 3-sentence summary of website content
+- Uses Gemini model to generate summary
+- Provides initial context for chat session
 
-3. Processing data: Identify and structure key information from the scraped content, which can be used as input to the ChatGPT API to generate meaningful responses.
+### 4. `configure_gemini_model(api_key)`
+- Configures Gemini API with provided key
+- Sets generation parameters like temperature, top_p
+- Initializes Gemini generative model
 
-4. Implementing the chatbot: Utilize the ChatGPT API to build the chatbot. Design the chatbot to take user inputs, process them, and generate suitable responses using the information obtained from the website.
+### 5. `start_interactive_chat(model, url)`
+- Validates URL and extracts website content
+- Generates initial content summary
+- Initiates interactive chat session
+- Allows continuous user questioning about website content
 
-5. Console demonstration: Prepare the chatbot to function seamlessly via the console, enabling users to interact with it, provide inputs, and receive relevant responses.
+## Flowchart
 
-Note: Submit your assignment in .py format in the same email chain. Also make a vedio demonstrating your code running and asking a question and chatbot answering it and write the key points explaining what steps you have followed.
+```mermaid
+graph TD
+    Start --> GetAPIKey["Retrieve Gemini API Key"]
+    GetAPIKey --> ValidateKey["Validate API Key"]
+    ValidateKey --> ConfigModel["Configure Gemini Model"]
+    ConfigModel --> InputURL["Input Website URL"]
+    InputURL --> ValidateURL["Validate URL"]
+    ValidateURL --> ExtractContent["Extract Website Content"]
+    ExtractContent --> GenerateSummary["Generate Content Summary"]
+    GenerateSummary --> StartChat["Start Interactive Chat"]
+    StartChat --> UserInput["User Input (Loop)"]
+    UserInput --> EnhancePrompt["Enhance Prompt with Website Content"]
+    EnhancePrompt --> GenerateResponse["Generate Response"]
+    GenerateResponse --> UserInput
+    UserInput --> End["End Session"]
+```
+
+## Requirements
+- Python 3.8+
+- Libraries: 
+  - requests
+  - beautifulsoup4
+  - google-generativeai
+
+## Setup
+1. Install required libraries:
+   ```
+   pip install requests beautifulsoup4 google-generativeai
+   or 
+   pip install -r requirements.txt
+   ```
+2. Obtain a Gemini API key from Google AI Studio 
+3. Run the script and follow console prompts
+
+## Usage
+1. Run the script
+2. Enter a valid website URL
+3. View website content summary
+4. Ask questions about the website
+5. Type 'exit' to end the session
+
+## Limitations
+- Maximum website content: 5000 characters/ can be changed according to the usage 
+- Requires stable internet connection
+- Dependent on website's accessibility and structures as some sites are secure and simple html parser can't be able to parse all the data.
