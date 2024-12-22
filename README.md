@@ -41,9 +41,7 @@ It takes a website URL, cleans up the content to focus on the main text, and the
 
 ```mermaid
 graph TD
-    Start --> GetAPIKey["Retrieve Gemini API Key"]
-    GetAPIKey --> ValidateKey["Validate API Key"]
-    ValidateKey --> ConfigModel["Configure Gemini Model"]
+    Start -->ConfigModel["Configure Gemini Model"]
     ConfigModel --> InputURL["Input Website URL"]
     InputURL --> ValidateURL["Validate URL"]
     ValidateURL --> ExtractContent["Extract Website Content"]
