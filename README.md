@@ -56,7 +56,7 @@ graph TD
 
 
 '''mermaid
-flowchart TB
+graph TD
     subgraph Frontend
         UI[Web Interface]
         URL[URL Input]
